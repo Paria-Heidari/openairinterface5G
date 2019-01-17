@@ -56,8 +56,8 @@ then update the Governor to performance
 
 Install i7z utility to check the CPU to its frequency if it is changing then it is essential to fix the CPU issue before proceeding further. We will face the realtime issues with eNB/UE/RRH. Thus, The CPU should not change its frequency by more than 1-2 hertz and should not be any C-state other than C0.
 
-> sudo apt-get install i7z  
-sudo i7z
+> `sudo apt-get install i7z`  
+`sudo i7z`
 
 More information can be found in the OAI GitLab 
 
@@ -72,20 +72,20 @@ The OpenAirInterface software can be obtained from their gitLab server. Check ou
 
 The following important command permits to set up automatically the environment variables in the .bashrc. So it is unnecessary to set manually the environment variables.
 
-> `cd openairinterface  
-source oaienv` 
+> `cd openairinterface`  
+`source oaienv` 
 
 * to prevents problems during the compilation due to the variables declarations
 
-> `cd cmake_targets  
-./build_oai -I    # need to run only once`
+> `cd cmake_targets`  
+`./build_oai -I    # need to run only once`
 
 The following command is a shell script that summarizes the compilation commands of the openairinterface5g code for different purposes.
 > `./build_oai -h`
 
 * to build the oaisim emulator without the S1 interface.
-> `openairinterface5g /cmake_targets/  
-./build_oai --oaisim --noS1 -c`
+> `openairinterface5g /cmake_targets/`  
+`./build_oai --oaisim --noS1 -c`
 
 * The OAISIM executable is now located under this directory
 
@@ -101,8 +101,8 @@ The following command is a shell script that summarizes the compilation commands
 
 The important command is ”source init nas nos1” to load the nasmesh Kernel Module and Setup the OAI Interface.
 
-> `cd cmake_targets/tools  
-source init_nas_nos1`  
+> `cd cmake_targets/tools`  
+`source init_nas_nos1`  
 
 * Bring up oai0 Interface for eNB and oai1 interface 
 > `sudo ifconfig oai0 10.0.1.1 netmask 255.255.255.0 broadcast 10.0.1.255`  
