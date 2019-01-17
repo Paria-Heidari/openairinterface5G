@@ -91,8 +91,13 @@ The following command is a shell script that summarizes the compilation commands
 
 > `openairinterface5g /cmake_targets/oaisim_noS1_build_oai/`
 
-# Running OAISIM without S1
+## <b>OpenAirInterface eNB and UE without the EPC (noS1)</b> 
 
+<img width="1065" alt="screen shot 2019-01-17 at 3 19 32 pm" src="https://user-images.githubusercontent.com/35240020/51339341-80ca5c80-1a8c-11e9-81cb-a684d3cd0fee.png">
+ 
+                                                   [Online Access]
+
+# Running OAISIM without S1
 
 The important command is ”source init nas nos1” to load the nasmesh Kernel Module and Setup the OAI Interface.
 
@@ -125,7 +130,7 @@ source init_nas_nos1`
 
 
 
-* <b> Communicate between UE and eNB </b> 
+* ### <b> Communicate between UE and eNB </b> 
 
 * IP address for eNB 
 > `10.0.1.1`  
@@ -136,9 +141,11 @@ source init_nas_nos1`
 > `ping 10.0.1.2 # make eNB to ping UE (packets are generated at eNB)`  
 `ping 10.0.2.1 # make UE to ping eNB`
 
-After communication between UE and eNB, we use debug tools that is offered by OAI is graphical dashboard which shows the situation of channel response and signal power at the physical level in time and frequency domain.
+After communication between UE and eNB, the debug tools that is offered by OAI is a graphical dashboard which shows the situation of channel response and signal power at the physical level in time and frequency domain.
 
 > `cmake_targets/tools/run_enb_ue_virt_noS1 -x`
+
+![experiment2](https://user-images.githubusercontent.com/35240020/51340615-b3298900-1a8f-11e9-88c3-bb4df1860e7c.png)
 
 
 # New OpenAir LTE Emulation without S1
@@ -159,13 +166,12 @@ There are some of them:
 Modifying a file in the ”targets/PROJECTS/GENERIC-LTE-EPC/CONF/YYY.conf” directory and it also possible to replace the loopback interface with a physical ethernet interface and the IP addresses to work on our network.
 
 * to run eNB
-<pre>
-   source oaienv  
-   cd cmake_targets/tools
-   sudo -E ./init_nas_nos1 eNB
-   cd ../lte_noS1_build_oai/build
-   sudo -E ./lte-softmodem-nos1 -O YYY.conf
-</pre>
+
+> `cd cmake_targets/tools`  
+`sudo -E ./init_nas_nos1 eNB`  
+`cd ../lte_noS1_build_oai/build`  
+`sudo -E ./lte-softmodem-nos1 -O YYY.conf`
+
 
 * <b> Building lte-uesoftmodem-noS1 </b> 
 
